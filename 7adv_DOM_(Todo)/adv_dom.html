@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADV DOM</title>
+</head>
+<body>
+    <script>
+        let globalCount = 0
+
+        function markAsDone(id){
+            const parent = document.getElementById(id)
+            parent.children[2].innerHTML = "DONE!"
+        }
+
+        function createTodo(title, desc, id){
+            const child = document.createElement("div")
+            const div1 = document.createElement("div")
+            div1.innerHTML = title
+            const div2 = document.createElement("div")
+            div2.innerHTML = desc
+            const button = document.createElement("button")
+            button.innerHTML = "Mark as done"
+            button.setAttribute("onclick", `markAsDone(${id})`)
+
+            child.appendChild(div1)
+            child.appendChild(div2)
+            child.appendChild(button)
+            child.setAttribute("id", id);
+
+            return child
+        }
+
+        function addTodo(){
+            const title = document.getElementById("title").value
+            const desc = document.getElementById("desc").value
+            const parent = document.getElementById("container")
+            //documnet.createElement
+            parent.appendChild(createTodo(title, desc, globalCount++))
+
+        }
+    </script>
+    <div>
+        <input type="text" id= "title"placeholder="titlebyuser">
+        <br>
+        <input type="text" id="desc" placeholder="description">
+        <br>
+        <button type="button" onclick="addTodo()">Add Todo</button>
+        <br>
+    </div>
+    <div id = "container">
+
+    </div>
+</body>
+</html>

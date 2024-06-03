@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM basics</title>
+</head>
+<script>
+    // This is the ugly way of doing backend calls----------
+    // function populateDiv(){
+    //     const a = document.getElementById("one").value
+    //     const b = document.getElementById("two").value
+    //     // const element = document.getElementById("finalsum")
+    //     fetch("https://sum-server.100xdevs.com/sum?a="+ a +"&b="+b)
+    //         .then(function(response){
+    //             response.text
+    //                 .then(function(value){
+    //                     const ans = value
+    //                     document.getElementById("finalsum").innerHTML = ans
+    //                 })
+    //         })
+    //     console.log(element)
+    //     // element.innerHTML = parseInt(a) + parseInt(b)
+    // }
+    // ------------------------------------------------------
+
+
+    let timeout
+    function debouncePopulateDiv(){
+        //This function delays calling populateDiv untill it has not been called for 100ms and called atleast once
+        clearTimeout(timeout)
+        timeout = setTimeout(function(){
+            populateDiv()
+        }, 1000)
+    }
+
+    async function populateDiv(){
+        const a = document.getElementById("one").value
+        const b = document.getElementById("two").value
+
+        const response = await fetch("https://sum-server.100xdevs.com/sum?a="+ a +"&b="+b)
+        const ans = await response.text()
+        document.getElementById("finalsum").innerHTML  = ans
+    }
+</script>
+<body>
+    <input oninput = "debouncePopulateDiv()" id="one" placeholder="Firstnumber"></input>
+    <br></br>
+    <input oninput = "debouncePopulateDiv()" id="two" placeholder="Secondnumber"></input>
+    <br></br>
+    <!-- <button onclick="populateDiv()">Calculate sum</button>
+    <br></br> -->
+    <div id="finalsum"></div>
+
+</body>
+</html>
