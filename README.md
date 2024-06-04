@@ -19,4 +19,4 @@ Zod(creating schema, validating an entire object)
 
 # Day-02 (04/06/2024)
 - Learned State management in DOM, which is not so good method to practce
-- React was another thing which I was introduced to. It does all the DOM that DOM does for us.
+- React was another thing which I was introduced to. It does all the things that DOM does for us.
