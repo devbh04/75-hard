@@ -20,3 +20,15 @@ Zod(creating schema, validating an entire object)
 # Day-02 (04/06/2024)
 - Learned State management in DOM, which is not so good method to practce
 - React was another thing which I was introduced to. It does all the things that DOM does for us.
+
+# Day-03 (05/06/2024) [Could not upload it on the day itself becasue of some reasons]
+- Learned how to connect multiple JS files together and dividing coding files based of different functionality
+- Learned how to create schemas in Mongoose
+- Learned how to connect route links
+- Did basic user authentication
+
+# Day-04 (06/06/2024)
+- Learned authentication using JWT
+- managed authorization of users (still creating the coding file for this will upload tomorrow or day after)
+- Learned react syntax
+- used it to create a basic counter app
